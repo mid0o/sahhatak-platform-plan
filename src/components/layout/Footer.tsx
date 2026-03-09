@@ -9,11 +9,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-primary-foreground/20 flex items-center justify-center">
-                <Plus className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-bold">صحتك</span>
+            <div className="mb-6">
+              <Logo light />
             </div>
             <p className="text-sm opacity-70 leading-relaxed mb-4">
               أكبر شبكة طبية في مصر 🇪🇬 بنسهّل عليك توصل لأحسن دكاترة ورعاية صحية متميزة... وبالشفا دايماً! 💙

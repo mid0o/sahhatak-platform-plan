@@ -94,7 +94,7 @@ export default function HeroSection() {
 
           {/* Search Card Side */}
           <div className="order-2">
-            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-6 lg:p-8 shadow-2xl border border-white/20">
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-5 lg:p-7 shadow-2xl border border-white/20">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Search className="w-5 h-5 text-primary" />
