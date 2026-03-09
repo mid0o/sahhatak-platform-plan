@@ -365,7 +365,8 @@
     @apply text-foreground bg-muted/50;
   }
   .nav-link.active {
-    @apply text-primary font-semibold bg-primary/8;
+    @apply text-primary font-semibold;
+    background-color: hsl(var(--primary) / 0.08);
   }
 
   /* ─── Enhanced Stats Cards ──────────────────────────── */
