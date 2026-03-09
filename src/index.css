@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    /* Medical Blue Palette */
+    /* Medical Blue Palette - Production Ready */
     --primary: 210 85% 45%;
     --primary-foreground: 0 0% 100%;
     --primary-light: 210 75% 55%;
@@ -50,9 +50,13 @@
     --input: 210 20% 88%;
     --ring: 210 85% 45%;
 
-    --radius: 0.875rem;
+    /* Production-Ready Border Radius */
+    --radius: 1rem;
+    --radius-sm: 0.75rem;
+    --radius-lg: 1.25rem;
+    --radius-full: 9999px;
 
-    /* ─── Shadows ─────────────────────────────────────────── */
+    /* Production-Ready Shadows */
     --shadow-xs: 0 1px 2px 0 hsl(210 20% 15% / 0.03);
     --shadow-sm: 0 1px 3px 0 hsl(210 20% 15% / 0.05), 0 1px 2px -1px hsl(210 20% 15% / 0.04);
     --shadow-md: 0 4px 8px -2px hsl(210 20% 15% / 0.06), 0 2px 4px -2px hsl(210 20% 15% / 0.04);
@@ -63,13 +67,13 @@
     --shadow-button: 0 4px 12px 0 hsl(210 85% 45% / 0.25);
     --shadow-button-hover: 0 8px 20px 0 hsl(210 85% 45% / 0.35);
 
-    /* ─── Gradients ───────────────────────────────────────── */
+    /* Modern Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(210 85% 45%) 0%, hsl(210 90% 55%) 50%, hsl(200 80% 50%) 100%);
     --gradient-hero-subtle: linear-gradient(135deg, hsl(210 50% 97%) 0%, hsl(200 40% 97%) 100%);
     --gradient-cta: linear-gradient(135deg, hsl(210 85% 45%) 0%, hsl(220 70% 40%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 99%) 100%);
 
-    /* ─── Sidebar ─────────────────────────────────────────── */
+    /* Sidebar Variables */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 215 25% 25%;
     --sidebar-primary: 210 85% 45%;
@@ -89,49 +93,72 @@
   html {
     direction: rtl;
     scroll-behavior: smooth;
+    /* Prevent zoom on iOS */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-background text-foreground font-arabic antialiased;
     font-feature-settings: "liga" 1, "kern" 1;
+    /* Improve touch scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* ─── Typography Scale ────────────────────────────────── */
+  /* Enhanced Typography Scale for Arabic */
   h1 {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground leading-tight;
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-foreground leading-tight;
+    line-height: 1.2;
   }
   h2 {
-    @apply text-2xl sm:text-3xl font-bold tracking-tight text-foreground leading-tight;
+    @apply text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-foreground leading-tight;
+    line-height: 1.3;
   }
   h3 {
-    @apply text-xl font-bold text-foreground leading-snug;
+    @apply text-lg sm:text-xl font-bold text-foreground leading-snug;
+    line-height: 1.4;
   }
   h4 {
-    @apply text-lg font-semibold text-foreground;
+    @apply text-base sm:text-lg font-semibold text-foreground;
+    line-height: 1.5;
   }
   h5, h6 {
-    @apply font-semibold text-foreground;
+    @apply text-sm sm:text-base font-semibold text-foreground;
+    line-height: 1.5;
+  }
+
+  /* Improved Button Focus for Accessibility */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-2 ring-primary/30 ring-offset-2;
   }
 }
 
 @layer components {
-  /* ─── Container ─────────────────────────────────────────── */
+  /* ─── Container with Better Mobile Margins ─────────────── */
   .container-app {
-    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-7xl px-3 sm:px-4 lg:px-6 xl:px-8;
   }
 
-  /* ─── Cards ─────────────────────────────────────────────── */
+  /* ─── Enhanced Cards with Production Polish ──────────── */
   .card-base {
-    @apply bg-card rounded-2xl border border-border/80;
+    @apply bg-card rounded-2xl border border-border/70;
     box-shadow: var(--shadow-card);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .card-hover {
-    @apply card-base transition-all duration-300 ease-out cursor-pointer;
+    @apply card-base cursor-pointer;
   }
   .card-hover:hover {
     box-shadow: var(--shadow-card-hover);
-    @apply -translate-y-1 border-primary/25;
+    @apply -translate-y-1 border-primary/25 scale-[1.02];
+  }
+  .card-hover:active {
+    @apply translate-y-0 scale-100;
   }
 
   .card-interactive {
@@ -139,55 +166,84 @@
   }
   .card-interactive:hover {
     @apply border-primary/30 bg-primary/[0.02];
+    box-shadow: var(--shadow-md);
   }
 
-  /* ─── Buttons ───────────────────────────────────────────── */
+  /* Production Ready Cards */
+  .card-doctor {
+    @apply card-hover;
+  }
+  .card-doctor:hover {
+    @apply border-primary/20 bg-gradient-to-br from-card to-primary/[0.01];
+  }
+
+  .card-pharmacy {
+    @apply card-hover;
+  }
+  .card-pharmacy:hover {
+    @apply border-success/20 bg-gradient-to-br from-card to-success/[0.01];
+  }
+
+  /* ─── Professional Button System ────────────────────── */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 sm:px-6 sm:py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30;
     box-shadow: var(--shadow-button);
+    /* Better mobile touch targets */
+    min-height: 44px;
+    min-width: 44px;
   }
   .btn-primary:hover:not(:disabled) {
-    @apply bg-primary-light -translate-y-0.5;
+    @apply bg-primary-light -translate-y-0.5 scale-105;
     box-shadow: var(--shadow-button-hover);
   }
   .btn-primary:active:not(:disabled) {
-    @apply translate-y-0;
+    @apply translate-y-0 scale-100;
     box-shadow: var(--shadow-button);
   }
   .btn-primary:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    @apply opacity-60 cursor-not-allowed;
     box-shadow: none;
+    transform: none;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-primary px-6 py-3 text-sm font-semibold text-primary bg-transparent transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-primary px-4 py-2.5 sm:px-6 sm:py-3 text-sm font-semibold text-primary bg-transparent transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30;
+    min-height: 44px;
+    min-width: 44px;
   }
   .btn-outline:hover:not(:disabled) {
-    @apply bg-primary text-primary-foreground -translate-y-0.5;
+    @apply bg-primary text-primary-foreground -translate-y-0.5 scale-105;
     box-shadow: var(--shadow-button);
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium text-muted-foreground transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 text-sm font-medium text-muted-foreground transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30;
+    min-height: 44px;
   }
   .btn-ghost:hover {
-    @apply bg-muted text-foreground;
+    @apply bg-muted text-foreground scale-105;
   }
 
   .btn-soft {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary/10 px-5 py-2.5 text-sm font-semibold text-primary transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary/10 px-4 py-2.5 text-sm font-semibold text-primary transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30;
+    min-height: 44px;
   }
   .btn-soft:hover {
-    @apply bg-primary/20;
+    @apply bg-primary/20 scale-105;
   }
 
-  /* ─── Form Inputs ───────────────────────────────────────── */
-  .input-field {
-    @apply w-full rounded-xl border border-border bg-card px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/70 transition-all duration-200;
+  /* Mobile-Optimized CTA Button */
+  .btn-cta {
+    @apply btn-primary px-6 py-4 text-base font-bold rounded-xl;
+    min-height: 52px;
   }
-  .input-field:focus {
-    @apply outline-none ring-2 ring-primary/15 border-primary bg-card;
-    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.06);
+
+  /* ─── Enhanced Form Controls for Mobile ──────────────── */
+  .input-field {
+    @apply w-full rounded-xl border border-border bg-card px-4 py-3.5 sm:py-4 text-sm sm:text-base text-foreground placeholder:text-muted-foreground/70 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary;
+    /* Mobile optimization */
+    min-height: 48px;
+    font-size: 16px; /* Prevent zoom on iOS */
   }
   .input-field:hover:not(:focus) {
     @apply border-border/100 bg-muted/30;
@@ -201,73 +257,97 @@
     background-size: 1.25rem 1.25rem;
   }
 
-  /* ─── Typography Utilities ──────────────────────────────── */
+  .textarea-field {
+    @apply input-field resize-y;
+    min-height: 120px;
+  }
+
+  /* Enhanced Search Input */
+  .search-input {
+    @apply input-field text-base pr-12 pl-4;
+    min-height: 52px;
+  }
+
+  /* ─── Typography Utilities with Perfect Hierarchy ───── */
   .section-header {
-    @apply mb-10 lg:mb-12;
+    @apply mb-8 lg:mb-12;
   }
 
   .section-label {
-    @apply inline-flex items-center gap-2 text-primary text-sm font-semibold mb-3;
+    @apply inline-flex items-center gap-2 text-primary text-sm font-semibold mb-3 tracking-wide;
   }
 
   .section-title {
-    @apply text-2xl sm:text-3xl font-bold tracking-tight text-foreground;
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground;
+    line-height: 1.2;
   }
 
   .section-subtitle {
-    @apply text-base text-muted-foreground mt-2 leading-relaxed max-w-xl;
+    @apply text-base sm:text-lg text-muted-foreground mt-3 leading-relaxed max-w-2xl;
   }
 
-  .text-balance {
-    text-wrap: balance;
+  .card-title {
+    @apply text-lg sm:text-xl font-bold text-foreground leading-tight;
   }
 
-  /* ─── Badges ────────────────────────────────────────────── */
+  .card-subtitle {
+    @apply text-sm text-muted-foreground mt-1 leading-relaxed;
+  }
+
+  .page-title {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-2;
+    line-height: 1.1;
+  }
+
+  .page-subtitle {
+    @apply text-base sm:text-lg text-muted-foreground leading-relaxed;
+  }
+
+  /* ─── Enhanced Badge System ─────────────────────────── */
   .badge {
-    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-all;
   }
 
   .badge-specialty {
-    @apply badge bg-accent text-accent-foreground;
+    @apply badge bg-accent text-accent-foreground hover:bg-accent/80;
   }
 
   .badge-available {
-    @apply badge bg-success-light text-success;
+    @apply badge bg-success-light text-success border border-success/20;
   }
 
   .badge-unavailable {
-    @apply badge bg-destructive/10 text-destructive;
+    @apply badge bg-destructive/10 text-destructive border border-destructive/20;
   }
 
   .badge-info {
-    @apply badge bg-info-light text-info;
+    @apply badge bg-info-light text-info border border-info/20;
   }
 
   .badge-warning {
-    @apply badge bg-warning-light text-warning;
+    @apply badge bg-warning-light text-warning border border-warning/20;
   }
 
-  /* ─── Pills / Tags ──────────────────────────────────────── */
+  /* ─── Interactive Pills ─────────────────────────────── */
   .pill {
-    @apply inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-200;
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-200 cursor-pointer;
   }
 
   .pill-interactive {
-    @apply pill bg-muted/60 text-muted-foreground cursor-pointer;
-  }
-  .pill-interactive:hover {
-    @apply bg-primary/10 text-primary;
+    @apply pill bg-muted/60 text-muted-foreground hover:bg-primary/10 hover:text-primary hover:scale-105;
   }
   .pill-interactive.active {
-    @apply bg-primary text-primary-foreground;
+    @apply bg-primary text-primary-foreground shadow-md;
   }
 
-  /* ─── Time Slots ────────────────────────────────────────── */
+  /* ─── Professional Time Slots ───────────────────────── */
   .time-slot {
-    @apply rounded-xl border border-border px-4 py-3 text-sm font-medium text-foreground cursor-pointer transition-all duration-200 text-center;
+    @apply rounded-xl border border-border px-3 py-2.5 sm:px-4 sm:py-3 text-sm font-medium text-foreground cursor-pointer transition-all duration-200 text-center hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30;
+    min-height: 44px;
   }
   .time-slot:hover:not(.disabled):not(.selected) {
     @apply border-primary text-primary bg-primary/5;
+    box-shadow: var(--shadow-sm);
   }
   .time-slot.selected {
     @apply bg-primary text-primary-foreground border-primary;
@@ -277,9 +357,9 @@
     @apply opacity-40 cursor-not-allowed line-through bg-muted/50;
   }
 
-  /* ─── Navigation ────────────────────────────────────────── */
+  /* ─── Navigation with Better Touch Targets ──────────── */
   .nav-link {
-    @apply text-sm font-medium text-muted-foreground transition-all duration-200 px-4 py-2 rounded-xl relative;
+    @apply text-sm font-medium text-muted-foreground transition-all duration-200 px-4 py-3 sm:py-2 rounded-xl relative min-h-[44px] flex items-center justify-center;
   }
   .nav-link:hover {
     @apply text-foreground bg-muted/50;
@@ -288,39 +368,39 @@
     @apply text-primary font-semibold bg-primary/8;
   }
 
-  /* ─── Stats / Metrics ───────────────────────────────────── */
+  /* ─── Enhanced Stats Cards ──────────────────────────── */
   .stat-card {
-    @apply card-base p-5 flex items-center gap-4;
+    @apply card-base p-5 sm:p-6 flex items-center gap-4 hover:scale-105 transition-all duration-200;
   }
 
   .stat-icon {
-    @apply w-12 h-12 rounded-xl flex items-center justify-center shrink-0;
+    @apply w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center shrink-0;
   }
 
   .stat-value {
-    @apply text-2xl font-bold text-foreground leading-none;
+    @apply text-2xl sm:text-3xl font-bold text-foreground leading-none;
   }
 
   .stat-label {
-    @apply text-xs text-muted-foreground mt-1;
+    @apply text-xs sm:text-sm text-muted-foreground mt-1;
   }
 
-  /* ─── Filter Controls ───────────────────────────────────── */
+  /* ─── Mobile-Optimized Filter Controls ───────────────── */
   .filter-checkbox {
-    @apply flex items-center gap-2.5 text-sm text-foreground cursor-pointer py-1.5;
+    @apply flex items-center gap-3 text-sm text-foreground cursor-pointer py-2 min-h-[44px];
   }
 
   .filter-checkbox input[type="checkbox"] {
-    @apply w-4 h-4 rounded border-border text-primary focus:ring-primary/20;
+    @apply w-5 h-5 rounded border-border text-primary focus:ring-primary/20 transition-all;
   }
 
-  /* ─── Step Indicators ───────────────────────────────────── */
+  /* ─── Step Indicators for Mobile ─────────────────────── */
   .step-indicator {
-    @apply flex items-center gap-2;
+    @apply flex items-center gap-2 justify-center;
   }
 
   .step-dot {
-    @apply w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300;
+    @apply w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all duration-300;
   }
 
   .step-dot.active {
@@ -338,30 +418,31 @@
 
   .step-line {
     @apply flex-1 h-0.5 bg-border mx-2;
+    max-width: 60px;
   }
 
   .step-line.active {
     @apply bg-primary;
   }
 
-  /* ─── Empty States ──────────────────────────────────────── */
+  /* ─── Enhanced Empty States ─────────────────────────── */
   .empty-state {
-    @apply flex flex-col items-center justify-center py-16 px-4 text-center;
+    @apply flex flex-col items-center justify-center py-12 px-4 text-center;
   }
 
   .empty-state-icon {
-    @apply w-20 h-20 rounded-full bg-muted/50 flex items-center justify-center mb-4;
+    @apply w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-muted/50 flex items-center justify-center mb-4;
   }
 
   .empty-state-title {
-    @apply text-lg font-semibold text-foreground mb-2;
+    @apply text-lg sm:text-xl font-semibold text-foreground mb-2;
   }
 
   .empty-state-description {
-    @apply text-sm text-muted-foreground max-w-sm;
+    @apply text-sm sm:text-base text-muted-foreground max-w-md leading-relaxed;
   }
 
-  /* ─── Loading States ────────────────────────────────────── */
+  /* ─── Loading States ────────────────────────────────── */
   .skeleton {
     @apply animate-pulse bg-muted rounded-lg;
   }
@@ -374,32 +455,40 @@
     @apply skeleton w-12 h-12 rounded-full;
   }
 
-  /* ─── Glassmorphism ─────────────────────────────────────── */
+  .loading-spinner {
+    @apply animate-spin rounded-full border-2 border-muted border-t-primary;
+  }
+
+  /* ─── Glassmorphism Effects ─────────────────────────── */
   .glass {
-    @apply bg-card/80 backdrop-blur-xl border border-white/20;
+    @apply bg-card/90 backdrop-blur-xl border border-card/20;
   }
 
   .glass-dark {
-    @apply bg-foreground/80 backdrop-blur-xl border border-white/10 text-primary-foreground;
+    @apply bg-foreground/90 backdrop-blur-xl border border-card/10 text-primary-foreground;
   }
 
-  /* ─── Dividers ──────────────────────────────────────────── */
+  /* ─── Dividers ──────────────────────────────────────── */
   .divider {
     @apply border-t border-border my-6;
   }
 
   .divider-dashed {
-    @apply border-t border-dashed border-border my-6;
+    @apply border-t border-dashed border-border my-4;
   }
 
-  /* ─── Focus Rings ───────────────────────────────────────── */
+  /* ─── Focus Management for Accessibility ────────────── */
   .focus-ring {
-    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2;
   }
 
-  /* ─── Animations ────────────────────────────────────────── */
+  /* ─── Enhanced Animations ───────────────────────────── */
   .animate-in {
-    animation: fadeInUp 0.4s ease-out forwards;
+    animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   @keyframes fadeInUp {
@@ -413,22 +502,60 @@
     }
   }
 
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
   .hover-lift {
-    @apply transition-transform duration-200;
+    @apply transition-transform duration-200 ease-out;
   }
   .hover-lift:hover {
-    @apply -translate-y-1;
+    @apply -translate-y-1 scale-105;
   }
 
   .hover-scale {
-    @apply transition-transform duration-200;
+    @apply transition-transform duration-200 ease-out;
   }
   .hover-scale:hover {
     @apply scale-[1.02];
   }
+
+  /* ─── Mobile-First Touch Interactions ───────────────── */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .tap-highlight-none {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* ─── Production-Ready Responsive Spacing ──────────── */
+  .section-padding {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  .section-padding-sm {
+    @apply py-8 sm:py-12 lg:py-16;
+  }
+
+  .card-padding {
+    @apply p-4 sm:p-5 lg:p-6;
+  }
+
+  .card-padding-sm {
+    @apply p-3 sm:p-4 lg:p-5;
+  }
 }
 
-/* ─── Scrollbar Styling ─────────────────────────────────── */
+/* ─── Production Scrollbar Styling ─────────────────── */
 @layer utilities {
   .scrollbar-thin {
     scrollbar-width: thin;
@@ -451,5 +578,14 @@
 
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--muted-foreground));
+  }
+
+  /* Safe Area Insets for Mobile */
+  .safe-area-inset-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }
