@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Plus } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { Logo } from "@/components/shared/Logo";
 
 const navLinks = [
   { label: "الرئيسية", path: "/" },
