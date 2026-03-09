@@ -105,8 +105,8 @@ export default function DoctorSearch() {
                   <h4 className="text-sm font-semibold mb-3">سعر الكشف</h4>
                   <input type="range" min="50" max="500" value={priceRange} onChange={(e) => setPriceRange(Number(e.target.value))} className="w-full accent-primary" />
                   <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                    <span>50 ر.س</span>
-                    <span>+500 ر.س</span>
+                    <span>50 ج.م</span>
+                    <span>+500 ج.م</span>
                   </div>
                 </div>
               </div>

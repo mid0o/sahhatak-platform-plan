@@ -47,11 +47,11 @@ export default function Footer() {
             <ul className="space-y-3 text-sm opacity-70">
               <li className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 shrink-0" />
-                <span>الرياض، المملكة العربية السعودية</span>
+                <span>القاهرة، جمهورية مصر العربية</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 shrink-0" />
-                <span dir="ltr">9200 12345</span>
+                <span dir="ltr">19XXX</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 shrink-0" />
