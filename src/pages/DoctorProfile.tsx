@@ -56,7 +56,7 @@ export default function DoctorProfile() {
                   <DoctorAvatar initials={doctor.initials} color={doctor.avatarColor} size="lg" />
                   <div className="flex-1">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <h1 className="text-xl font-bold text-foreground">{doctor.name}</h1>
+                      <h1 className="text-xl font-bold text-foreground">{doctor.fullName}</h1>
                       <span className="w-3 h-3 rounded-full bg-success shrink-0" />
                     </div>
                     <p className="text-sm text-primary font-medium mt-1">{doctor.title}</p>
