@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { specialties } from "@/data/specialties";
 import {
-  Smile, Fingerprint, Baby, Heart, Eye, Brain, Bone, Stethoscope
+  Smile, Fingerprint, Baby, Heart, Eye, Brain, Bone, Stethoscope, Layers
 } from "lucide-react";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -14,11 +14,15 @@ export default function SpecialtiesGrid() {
       <div className="container-app">
         <div className="flex items-end justify-between mb-10">
           <div className="text-right">
-            <h2 className="section-title">التخصصات الطبية</h2>
-            <p className="section-subtitle">تصفح الأطباء حسب التخصص الطبي الذي تحتاجه</p>
+            <div className="inline-flex items-center gap-2 text-primary text-sm font-medium mb-2">
+              <Layers className="w-4 h-4" />
+              <span>تخصصات متنوعة</span>
+            </div>
+            <h2 className="section-title">دوّر حسب التخصص</h2>
+            <p className="section-subtitle">اختار التخصص اللي محتاجه وهنوصّلك بأحسن دكتور</p>
           </div>
           <Link to="/doctors" className="text-sm font-semibold text-primary hover:text-primary-light transition-colors whitespace-nowrap">
-            عرض الكل ←
+            كل التخصصات ←
           </Link>
         </div>
 
@@ -36,7 +40,7 @@ export default function SpecialtiesGrid() {
                 </div>
                 <div>
                   <span className="text-sm font-bold text-foreground block">{spec.name}</span>
-                  <span className="text-xs text-muted-foreground mt-0.5 block">{spec.doctorCount} طبيب</span>
+                  <span className="text-xs text-muted-foreground mt-0.5 block">{spec.doctorCount} دكتور</span>
                 </div>
               </Link>
             );
