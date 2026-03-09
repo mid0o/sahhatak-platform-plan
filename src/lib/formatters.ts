@@ -1,5 +1,5 @@
 export function formatPrice(price: number): string {
-  return `${price.toFixed(price % 1 === 0 ? 0 : 2)} ر.س`;
+  return `${price.toFixed(price % 1 === 0 ? 0 : 2)} ج.م`;
 }
 
 export function formatRating(rating: number): string {
