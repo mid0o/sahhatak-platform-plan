@@ -58,7 +58,7 @@ export default function HeroSection() {
               <span>أكتر من +5,000 طبيب معتمد في مصر 🇪🇬</span>
             </div>
 
-            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 tracking-tight">
               احجز أفضل الأطباء
               <br />
               <span className="text-white/90">في مصر بسهولة</span>
