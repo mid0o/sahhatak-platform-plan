@@ -47,7 +47,7 @@ export default function PharmacySearch() {
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold mb-2">المدينة</h4>
-                  <select className="input-field text-sm"><option>الرياض</option><option>جدة</option></select>
+                  <select className="input-field text-sm"><option>القاهرة</option><option>الجيزة</option><option>الإسكندرية</option></select>
                 </div>
                 <button className="btn-primary w-full text-sm">تطبيق الفلاتر</button>
               </div>

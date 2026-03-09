@@ -68,7 +68,7 @@ export default function BookingPage() {
                   <div>
                     <label className="block text-sm font-medium mb-1.5 text-right">رقم الهاتف</label>
                     <div className="relative">
-                      <input className="input-field pr-10" placeholder="05xxxxxxxx" value={form.phone} onChange={(e) => update("phone", e.target.value)} required />
+                      <input className="input-field pr-10" placeholder="01xxxxxxxxx" value={form.phone} onChange={(e) => update("phone", e.target.value)} required />
                       <Phone className="absolute top-1/2 -translate-y-1/2 right-3 w-4 h-4 text-muted-foreground" />
                     </div>
                   </div>

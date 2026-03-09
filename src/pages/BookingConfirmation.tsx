@@ -50,10 +50,10 @@ export default function BookingConfirmation() {
 
             <div className="flex items-center gap-2 text-sm">
               <MapPin className="w-4 h-4 text-primary shrink-0" />
-              <span>مجمع الرياض الطبي - مبنى العيادات الخارجية</span>
+              <span>مستشفى دار الفؤاد - مبنى العيادات الخارجية</span>
             </div>
 
-            <MapPlaceholder label="مجمع الرياض الطبي" />
+            <MapPlaceholder label="مستشفى دار الفؤاد" />
 
             <div className="grid grid-cols-2 gap-3 pt-4">
               <button className="btn-primary py-3 text-sm">
