@@ -1,46 +1,50 @@
-import { Search, CalendarCheck, HeartPulse } from "lucide-react";
+import { Search, CalendarCheck, HeartPulse, ArrowLeft } from "lucide-react";
 
 const steps = [
   {
     icon: Search,
     number: "١",
-    title: "دوّر على دكتورك",
-    description: "اختار من آلاف الدكاترة في كل التخصصات والمدن في مصر.",
+    title: "ابحث عن الطبيب المناسب",
+    description: "استخدم الفلاتر الذكية حسب التخصص والمدينة والتقييم للوصول للطبيب الأنسب.",
   },
   {
     icon: CalendarCheck,
     number: "٢",
-    title: "احجز الموعد",
-    description: "اختار الوقت المناسب ليك وأكّد حجزك بضغطة واحدة.",
+    title: "اختر الموعد",
+    description: "شاهد المواعيد المتاحة مباشرة واحجز في دقيقة واحدة بدون مكالمات.",
   },
   {
     icon: HeartPulse,
     number: "٣",
-    title: "وبالشفا! 💙",
-    description: "روح للدكتور واحنا هنفضل نتابع معاك ملفك الصحي.",
+    title: "تابع صحتك بسهولة",
+    description: "إدارة مواعيدك وسجلك الطبي ومراجعاتك من لوحة تحكم واحدة.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="py-16 lg:py-20 bg-card">
-      <div className="container-app text-center">
-        <h2 className="section-title mb-3">إزاي صحتك بتشتغل؟</h2>
-        <p className="section-subtitle mb-12 mx-auto max-w-md">٣ خطوات بس وهتوصل لأحسن رعاية طبية</p>
+    <section className="py-14 lg:py-18 bg-card">
+      <div className="container-app">
+        <div className="text-center section-header">
+          <h2 className="section-title mb-3">كيف تعمل منصة صحتك؟</h2>
+          <p className="section-subtitle mx-auto">تجربة حجز طبية بسيطة وواضحة في ٣ خطوات فقط.</p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {steps.map((step, i) => (
-            <div key={step.number} className="flex flex-col items-center gap-5">
-              <div className="relative">
-                <div className="w-24 h-24 rounded-3xl bg-primary/8 flex items-center justify-center transition-transform duration-300 hover:scale-105">
-                  <step.icon className="w-10 h-10 text-primary" />
-                </div>
-                <span className="absolute -top-2 -right-2 w-9 h-9 rounded-full bg-primary text-primary-foreground text-sm font-bold flex items-center justify-center shadow-medium">
-                  {step.number}
-                </span>
+            <div key={step.number} className="card-interactive p-6 text-center relative">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <step.icon className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-lg font-bold text-foreground">{step.title}</h3>
-              <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">{step.description}</p>
+              <span className="inline-flex w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold items-center justify-center mb-3">
+                {step.number}
+              </span>
+              <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+
+              {i < steps.length - 1 && (
+                <ArrowLeft className="hidden md:block absolute -left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-border" />
+              )}
             </div>
           ))}
         </div>

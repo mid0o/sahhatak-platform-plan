@@ -17,69 +17,65 @@ export default function Navbar() {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border/60">
-      <div className="container-app flex items-center justify-between h-16">
-        {/* Logo */}
-        <Link to="/" className="shrink-0">
-          <Logo />
-        </Link>
+    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-lg border-b border-border/50">
+      <div className="container-app">
+        <div className="flex items-center justify-between h-16 lg:h-[4.5rem]">
+          <Link to="/" className="shrink-0 hover-lift">
+            <Logo />
+          </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`nav-link ${isActive(link.path) ? "active" : ""}`}
-            >
-              {link.label}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <Link key={link.path} to={link.path} className={`nav-link ${isActive(link.path) ? "active" : ""}`}>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="hidden lg:flex items-center gap-3">
+            <Link to="/login" className="btn-ghost text-sm px-5 py-2.5 border border-border/80 rounded-xl hover:border-primary/30">
+              تسجيل الدخول
             </Link>
-          ))}
-        </nav>
+            <Link to="/register" className="btn-primary text-sm px-6 py-2.5">
+              إنشاء حساب
+            </Link>
+          </div>
 
-        {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-2.5">
-          <Link to="/login" className="btn-ghost text-xs px-4 py-2 border border-border rounded-xl">
-            تسجيل الدخول
-          </Link>
-          <Link to="/register" className="btn-primary text-xs px-5 py-2.5">
-            إنشاء حساب
-          </Link>
+          <button
+            className="lg:hidden p-2.5 text-foreground rounded-xl hover:bg-muted transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "إغلاق القائمة" : "فتح القائمة"}
+          >
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden p-2 text-foreground rounded-xl hover:bg-muted transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="md:hidden border-t border-border bg-card animate-fade-in">
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-out ${mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}>
+        <div className="border-t border-border/50 bg-card">
           <nav className="container-app py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`nav-link block ${isActive(link.path) ? "active" : ""}`}
+                className={`nav-link block py-3 ${isActive(link.path) ? "active" : ""}`}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
             <hr className="border-border my-3" />
-            <Link to="/login" className="btn-ghost border border-border text-center text-sm rounded-xl" onClick={() => setMobileOpen(false)}>
-              تسجيل الدخول
-            </Link>
-            <Link to="/register" className="btn-primary text-center text-sm" onClick={() => setMobileOpen(false)}>
-              إنشاء حساب
-            </Link>
+            <div className="flex flex-col gap-2 pt-2">
+              <Link to="/login" className="btn-ghost border border-border text-center text-sm rounded-xl py-3" onClick={() => setMobileOpen(false)}>
+                تسجيل الدخول
+              </Link>
+              <Link to="/register" className="btn-primary text-center text-sm py-3" onClick={() => setMobileOpen(false)}>
+                إنشاء حساب
+              </Link>
+            </div>
           </nav>
         </div>
-      )}
+      </div>
     </header>
   );
 }
