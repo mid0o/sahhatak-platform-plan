@@ -101,7 +101,7 @@ export default function Dashboard() {
                     <div key={i} className="card-base p-4 flex items-center gap-4">
                       <DoctorAvatar initials={apt.doctor.initials} color={apt.doctor.avatarColor} size="sm" />
                       <div className="flex-1">
-                        <h3 className="font-bold text-sm">{apt.doctor.name}</h3>
+                        <h3 className="font-bold text-sm">{apt.doctor.fullName}</h3>
                         <p className="text-xs text-primary">{apt.doctor.specialty}</p>
                         <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
                           <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {apt.date}</span>
@@ -153,7 +153,7 @@ export default function Dashboard() {
                     <div key={doc.id} className="flex items-center gap-3">
                       <DoctorAvatar initials={doc.initials} color={doc.avatarColor} size="sm" />
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-semibold text-sm truncate">{doc.name}</h4>
+                        <h4 className="font-semibold text-sm truncate">{doc.fullName}</h4>
                         <p className="text-xs text-muted-foreground">{doc.specialty}</p>
                       </div>
                       <button className="text-destructive/50 hover:text-destructive"><Heart className="w-4 h-4 fill-current" /></button>

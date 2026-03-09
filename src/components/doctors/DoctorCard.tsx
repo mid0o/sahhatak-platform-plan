@@ -20,7 +20,7 @@ export default function DoctorCard({ doctor, variant = "grid" }: DoctorCardProps
           </div>
           <div className="flex-1 text-right">
             <div className="flex items-center gap-2 mb-1">
-              <h3 className="font-bold text-foreground text-lg">{doctor.name}</h3>
+              <h3 className="font-bold text-foreground text-lg">{doctor.fullName}</h3>
               {doctor.available && <span className="badge-available">متاح</span>}
             </div>
             <p className="text-sm text-primary font-medium">{doctor.specialty}</p>
@@ -49,7 +49,7 @@ export default function DoctorCard({ doctor, variant = "grid" }: DoctorCardProps
           {doctor.available && (
             <div className="flex items-center gap-1 text-xs text-success font-medium">
               <Clock className="w-3.5 h-3.5" />
-              <span>متاح اليوم: {doctor.nextSlot}</span>
+              <span>متاح اليوم: {doctor.nextAvailableSlot}</span>
             </div>
           )}
           <Link to={`/doctors/${doctor.id}`} className="btn-primary text-xs w-full sm:w-auto text-center">
@@ -65,7 +65,7 @@ export default function DoctorCard({ doctor, variant = "grid" }: DoctorCardProps
       <div className="flex items-center gap-3 mb-4">
         <DoctorAvatar initials={doctor.initials} color={doctor.avatarColor} size="md" />
         <div className="text-right flex-1 min-w-0">
-          <h3 className="font-bold text-foreground text-sm truncate">{doctor.name}</h3>
+          <h3 className="font-bold text-foreground text-sm truncate">{doctor.fullName}</h3>
           <p className="text-xs text-primary mt-0.5 truncate">{doctor.specialty}</p>
         </div>
       </div>

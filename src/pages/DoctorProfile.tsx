@@ -44,7 +44,7 @@ export default function DoctorProfile() {
             <ChevronLeft className="w-3.5 h-3.5" />
             <Link to="/doctors" className="hover:text-primary">بحث الأطباء</Link>
             <ChevronLeft className="w-3.5 h-3.5" />
-            <span className="text-foreground font-medium">{doctor.name}</span>
+            <span className="text-foreground font-medium">{doctor.fullName}</span>
           </nav>
 
           <div className="flex flex-col lg:flex-row gap-6">
@@ -56,14 +56,14 @@ export default function DoctorProfile() {
                   <DoctorAvatar initials={doctor.initials} color={doctor.avatarColor} size="lg" />
                   <div className="flex-1">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <h1 className="text-xl font-bold text-foreground">{doctor.name}</h1>
+                      <h1 className="text-xl font-bold text-foreground">{doctor.fullName}</h1>
                       <span className="w-3 h-3 rounded-full bg-success shrink-0" />
                     </div>
                     <p className="text-sm text-primary font-medium mt-1">{doctor.title}</p>
                     <div className="flex items-center gap-3 mt-2 text-xs text-muted-foreground flex-wrap">
                       <RatingStars rating={doctor.rating} reviewCount={doctor.reviewCount} />
                       <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" />{doctor.city}، {doctor.area}</span>
-                      <span>{doctor.experience}+ سنة خبرة</span>
+                      <span>{doctor.yearsOfExperience}+ سنة خبرة</span>
                     </div>
                   </div>
                 </div>
