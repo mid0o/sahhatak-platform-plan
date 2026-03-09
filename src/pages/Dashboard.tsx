@@ -153,7 +153,7 @@ export default function Dashboard() {
                     <div key={doc.id} className="flex items-center gap-3">
                       <DoctorAvatar initials={doc.initials} color={doc.avatarColor} size="sm" />
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-semibold text-sm truncate">{doc.name}</h4>
+                        <h4 className="font-semibold text-sm truncate">{doc.fullName}</h4>
                         <p className="text-xs text-muted-foreground">{doc.specialty}</p>
                       </div>
                       <button className="text-destructive/50 hover:text-destructive"><Heart className="w-4 h-4 fill-current" /></button>

@@ -100,7 +100,7 @@ export default function BookingPage() {
                 <div className="flex items-center gap-3 mb-5">
                   <DoctorAvatar initials={doctor.initials} color={doctor.avatarColor} size="sm" />
                   <div>
-                    <h3 className="font-bold text-sm">{doctor.name}</h3>
+                    <h3 className="font-bold text-sm">{doctor.fullName}</h3>
                     <p className="text-xs text-primary">{doctor.specialty}</p>
                   </div>
                 </div>

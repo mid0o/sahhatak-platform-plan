@@ -32,7 +32,7 @@ export default function BookingConfirmation() {
             <div className="flex items-center gap-3">
               <DoctorAvatar initials={doctor.initials} color={doctor.avatarColor} size="sm" />
               <div>
-                <h3 className="font-bold">{doctor.name}</h3>
+                <h3 className="font-bold">{doctor.fullName}</h3>
                 <p className="text-sm text-primary">{doctor.title}</p>
               </div>
             </div>

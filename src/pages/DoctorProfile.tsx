@@ -63,7 +63,7 @@ export default function DoctorProfile() {
                     <div className="flex items-center gap-3 mt-2 text-xs text-muted-foreground flex-wrap">
                       <RatingStars rating={doctor.rating} reviewCount={doctor.reviewCount} />
                       <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" />{doctor.city}، {doctor.area}</span>
-                      <span>{doctor.experience}+ سنة خبرة</span>
+                      <span>{doctor.yearsOfExperience}+ سنة خبرة</span>
                     </div>
                   </div>
                 </div>

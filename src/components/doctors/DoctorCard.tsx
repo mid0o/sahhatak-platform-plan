@@ -65,7 +65,7 @@ export default function DoctorCard({ doctor, variant = "grid" }: DoctorCardProps
       <div className="flex items-center gap-3 mb-4">
         <DoctorAvatar initials={doctor.initials} color={doctor.avatarColor} size="md" />
         <div className="text-right flex-1 min-w-0">
-          <h3 className="font-bold text-foreground text-sm truncate">{doctor.name}</h3>
+          <h3 className="font-bold text-foreground text-sm truncate">{doctor.fullName}</h3>
           <p className="text-xs text-primary mt-0.5 truncate">{doctor.specialty}</p>
         </div>
       </div>
