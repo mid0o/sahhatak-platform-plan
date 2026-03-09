@@ -48,7 +48,7 @@ export default function HeroSection() {
         }} />
       </div>
 
-      <div className="relative container-app py-20 lg:py-28">
+      <div className="relative container-app">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content Side */}
           <div className="text-right order-1">
