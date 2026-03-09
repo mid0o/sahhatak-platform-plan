@@ -16,7 +16,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden min-h-[85vh] flex items-center">
+    <section className="relative overflow-hidden py-16 lg:py-24 flex items-center">
       {/* Modern gradient background */}
       <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
       
@@ -48,7 +48,7 @@ export default function HeroSection() {
         }} />
       </div>
 
-      <div className="relative container-app py-20 lg:py-28">
+      <div className="relative container-app">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content Side */}
           <div className="text-right order-1">
@@ -58,7 +58,7 @@ export default function HeroSection() {
               <span>أكتر من +5,000 طبيب معتمد في مصر 🇪🇬</span>
             </div>
 
-            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 tracking-tight">
               احجز أفضل الأطباء
               <br />
               <span className="text-white/90">في مصر بسهولة</span>
@@ -94,7 +94,7 @@ export default function HeroSection() {
 
           {/* Search Card Side */}
           <div className="order-2">
-            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-6 lg:p-8 shadow-2xl border border-white/20">
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-5 lg:p-7 shadow-2xl border border-white/20">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Search className="w-5 h-5 text-primary" />
